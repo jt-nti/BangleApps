@@ -9,8 +9,9 @@ function hasAlert(info) {
   return (Array.isArray(info.medicalAlert)) && (info.medicalAlert[0]);
 }
 
-// No space for widgets!
-// TODO: no padlock widget visible so prevent screen locking?
+// Load widgets but keep them hidden
+Bangle.loadWidgets();
+require("widget_utils").hide();
 
 g.clear();
 const bodyFont = g.getFonts().includes("12x20") ? "12x20" : "6x8:2";
@@ -50,8 +51,8 @@ E.showScroller({
   // a function to draw a menu item
   draw: function (idx, r) {
     // FIXME: in 2v13 onwards, clearRect(r) will work fine. There's a bug in 2v12
-    g.setBgColor(idx < titleCnt ? g.theme.bg2 : g.theme.bg).
-      setColor(idx < titleCnt ? g.theme.fg2 : g.theme.fg).
+    g.setBgColor(idx < titleCnt ? g.theme.bgH : g.theme.bg).
+      setColor(idx < titleCnt ? g.theme.fgH : g.theme.fg).
       clearRect(r.x, r.y, r.x + r.w, r.y + r.h);
     g.setFont(bodyFont).drawString(lines[idx], r.x, r.y);
   }
