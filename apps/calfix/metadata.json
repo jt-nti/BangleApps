@@ -1,0 +1,29 @@
+{
+  "id": "calfix",
+  "name": "Calendar Fix",
+  "version": "0.01",
+  "description": "A service for fixing the Calendar app scroll and swipe directions",
+  "icon": "app.png",
+  "tags": "tool,system",
+  "supports": [
+    "BANGLEJS2"
+  ],
+  "readme": "README.md",
+  "type": "bootloader",
+  "storage": [
+    {
+      "name": "calfix.boot.js",
+      "url": "boot.js"
+    },
+    {
+      "name": "calfix.img",
+      "url": "app-icon.js",
+      "evaluate": true
+    }
+  ],
+  "data": [
+    {
+      "name": "calfix.json"
+    }
+  ]
+}
